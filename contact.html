@@ -12,4 +12,87 @@ html,body{max-width:100%;overflow-x:clip}
   .brief{padding:70px 0;gap:28px}.brief h2{font-size:44px}.briefgrid div{min-height:140px;padding:20px}
   .credit-footer{width:calc(100% - 32px);padding-bottom:40px}
 }
-</style></head><body><header class="nav"><div class="navin shell"><a href="/" class="brand"><img src="/brand-mark.svg" alt=""><span>Creator Supply</span></a><nav class="links"><a href="/">Home</a><a href="/#shop">Shop</a><a href="/#setup">Setups</a><a href="/contact.html">Contact</a></nav></div></header><main class="shell"><section class="hero"><div><span class="code">Contact / 01</span><h1>Tell us what you make.</h1><p>We can help narrow the gear before you buy.</p></div><div class="orbit"><span class="ring r1"></span><span class="ring r2"></span><span class="ring r3"></span><div class="mono">CS</div></div></section><section class="channels"><article class="channel orange"><small>01 / WhatsApp</small><h2>Quick product matching.</h2><p>Best for availability, compatibility and a fast shortlist.</p><span class="btn">WhatsApp connection pending</span></article><article class="channel blue"><small>02 / Email</small><h2>Orders and enquiries.</h2><p>For partnerships, order questions and anything that needs a longer answer.</p><a class="btn" href="mailto:hello@creatorsupply.example">Send email</a></article></section><section class="brief"><div><span class="code">What to send</span><h2>Three details are enough.</h2></div><div class="briefgrid"><div><span>01</span><strong>Your device</strong><p>Phone, camera, laptop or current setup.</p></div><div><span>02</span><strong>Your content</strong><p>Reels, podcast, courses, product video or livestreams.</p></div><div><span>03</span><strong>Your budget</strong><p>We will work inside it, not around it.</p></div></div></section><div class="back"><span>Still browsing?</span><a href="/">Go back home</a></div></main><footer class="credit-footer"><span>© 2026 Creator Supply</span><a href="https://mikeaccolade.xyz" target="_blank" rel="noreferrer">Built by Mike Accolade ↗</a></footer></body></html>
+
+/* v10 real mobile menu + live motion */
+:root{--page-progress:0}
+body::before{content:"";position:fixed;left:0;top:0;width:100%;height:3px;z-index:100;background:linear-gradient(90deg,#ff5a1f,#ff9a72,#2453ff,#c9ff48);transform:scaleX(var(--page-progress));transform-origin:left;pointer-events:none}
+.nav{transition:height .3s cubic-bezier(.16,1,.3,1),box-shadow .3s ease,background .3s ease}
+body.scrolled .nav{height:66px;background:rgba(238,234,226,.985);box-shadow:0 14px 34px rgba(15,15,14,.07)}
+.nav-actions{display:flex;align-items:center;gap:8px}
+.mobile-toggle{display:none;width:42px;height:42px;border:1px solid var(--line);border-radius:5px;background:transparent;position:relative;padding:0}
+.mobile-toggle span{position:absolute;left:11px;width:18px;height:1.5px;background:var(--ink);transition:.25s cubic-bezier(.16,1,.3,1)}
+.mobile-toggle span:first-child{top:16px}.mobile-toggle span:last-child{top:23px}
+.mobile-toggle.open span:first-child{top:20px;transform:rotate(45deg)}.mobile-toggle.open span:last-child{top:20px;transform:rotate(-45deg)}
+.mobile-drawer{position:fixed;inset:74px 0 0;z-index:80;background:rgba(15,15,14,.4);backdrop-filter:blur(7px);opacity:0;pointer-events:none;transition:opacity .22s ease}
+.mobile-drawer.open{opacity:1;pointer-events:auto}
+.drawer-panel{margin:8px;background:#11110f;color:#fff;border:1px solid #2c2c29;border-radius:8px;padding:10px 18px 18px;transform:translateY(-12px) scale(.985);opacity:0;transition:.38s cubic-bezier(.16,1,.3,1)}
+.mobile-drawer.open .drawer-panel{transform:none;opacity:1}
+.drawer-panel nav{display:grid}
+.drawer-panel nav a{display:grid;grid-template-columns:34px 1fr;align-items:center;min-height:61px;border-bottom:1px solid #30302d;font-size:25px;font-weight:700;letter-spacing:-.04em}
+.drawer-panel nav small{font-size:9px;color:#77736c;letter-spacing:.1em}
+.drawer-meta{display:flex;justify-content:space-between;gap:12px;padding-top:16px;font-size:10px;color:#aaa69d}
+.reveal-node{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.16,1,.3,1);transition-delay:var(--delay,0ms)}
+.reveal-node.visible{opacity:1;transform:none}
+.visual{--tilt-x:0deg;--tilt-y:0deg;transform:perspective(1300px) rotateX(var(--tilt-y)) rotateY(var(--tilt-x));transition:transform .22s ease-out,box-shadow .35s ease}
+.visual:hover{box-shadow:0 34px 84px rgba(15,15,14,.14)}
+.card{isolation:isolate}.card:before{content:"";position:absolute;width:86px;height:86px;right:-34px;top:-34px;border-radius:50%;background:#ff5a1f24;transform:scale(.7);transition:transform .5s cubic-bezier(.16,1,.3,1);z-index:-1}.card:nth-child(2n):before{background:#2453ff1f}.card:nth-child(3n):before{background:#c9ff4830}.card:hover:before{transform:scale(1.55)}
+@media(max-width:620px){
+  .nav{height:66px!important;margin-bottom:0!important}.navin{position:static!important}
+  .links{display:none!important}.mobile-toggle{display:block}.bag{font-size:10px}
+  .mobile-drawer{inset:66px 0 0}
+  body.scrolled .nav{height:60px!important}.mobile-drawer.open{inset:60px 0 0}
+  .visual{transform:none!important}.reveal-node{transform:translateY(17px)}
+}
+@media(min-width:621px){.mobile-drawer,.mobile-toggle{display:none!important}}
+@media(prefers-reduced-motion:reduce){body::before{display:none}.reveal-node{opacity:1!important;transform:none!important;transition:none!important}.visual{transform:none!important}}
+</style></head><body><header class="nav"><div class="navin shell"><a href="/" class="brand"><img src="/brand-mark.svg" alt=""><span>Creator Supply</span></a><nav class="links"><a href="/">Home</a><a href="/#shop">Shop</a><a href="/#setup">Setups</a><a href="/#kits">Kits</a><a href="/contact.html">Contact</a></nav><div class="nav-actions"><a href="/#shop" class="bag">Shop</a><button class="mobile-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button></div></div></header><div class="mobile-drawer" aria-hidden="true"><div class="drawer-panel"><nav aria-label="Mobile navigation"><a href="/"><small>01</small><span>Home</span></a><a href="/#shop"><small>02</small><span>Shop</span></a><a href="/#setup"><small>03</small><span>Setups</span></a><a href="/#kits"><small>04</small><span>Kits</span></a><a href="/contact.html"><small>05</small><span>Contact</span></a></nav><div class="drawer-meta"><span>Creator Supply</span><span>Nigeria</span></div></div></div><main class="shell"><section class="hero"><div><span class="code">Contact / 01</span><h1>Tell us what you make.</h1><p>We can help narrow the gear before you buy.</p></div><div class="orbit"><span class="ring r1"></span><span class="ring r2"></span><span class="ring r3"></span><div class="mono">CS</div></div></section><section class="channels"><article class="channel orange"><small>01 / WhatsApp</small><h2>Quick product matching.</h2><p>Best for availability, compatibility and a fast shortlist.</p><span class="btn">WhatsApp connection pending</span></article><article class="channel blue"><small>02 / Email</small><h2>Orders and enquiries.</h2><p>For partnerships, order questions and anything that needs a longer answer.</p><a class="btn" href="/contact.html">Email support is being connected</a></article></section><section class="brief"><div><span class="code">What to send</span><h2>Three details are enough.</h2></div><div class="briefgrid"><div><span>01</span><strong>Your device</strong><p>Phone, camera, laptop or current setup.</p></div><div><span>02</span><strong>Your content</strong><p>Reels, podcast, courses, product video or livestreams.</p></div><div><span>03</span><strong>Your budget</strong><p>We will work inside it, not around it.</p></div></div></section><div class="back"><span>Still browsing?</span><a href="/">Go back home</a></div></main><footer class="credit-footer"><span>© 2026 Creator Supply</span><a href="https://mikeaccolade.xyz" target="_blank" rel="noreferrer">Built by Mike Accolade ↗</a></footer>
+<script>
+(function(){
+  const toggle=document.querySelector('.mobile-toggle');
+  const drawer=document.querySelector('.mobile-drawer');
+  const panel=drawer&&drawer.querySelector('.drawer-panel');
+  const setOpen=(open)=>{
+    if(!toggle||!drawer)return;
+    toggle.classList.toggle('open',open);
+    drawer.classList.toggle('open',open);
+    toggle.setAttribute('aria-expanded',String(open));
+    document.body.style.overflow=open?'hidden':'';
+  };
+  if(toggle&&drawer){
+    toggle.addEventListener('click',()=>setOpen(!drawer.classList.contains('open')));
+    drawer.addEventListener('click',()=>setOpen(false));
+    if(panel)panel.addEventListener('click',e=>e.stopPropagation());
+    drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setOpen(false)));
+    window.addEventListener('keydown',e=>{if(e.key==='Escape')setOpen(false)});
+  }
+
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const nodes=[...document.querySelectorAll('main section,.card,.quotes article,.workflowcard,.statement,.closing,.channel,.briefgrid>div,.credit-footer')];
+  nodes.forEach((el,i)=>{el.classList.add('reveal-node');el.style.setProperty('--delay',Math.min(i%4,3)*55+'ms')});
+  if(reduce){nodes.forEach(el=>el.classList.add('visible'))}
+  else{
+    const io=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');io.unobserve(entry.target)}}),{threshold:.08,rootMargin:'0px 0px -7% 0px'});
+    nodes.forEach(el=>io.observe(el));
+  }
+
+  let ticking=false;
+  const update=()=>{
+    const max=Math.max(document.documentElement.scrollHeight-innerHeight,1);
+    document.documentElement.style.setProperty('--page-progress',Math.max(0,Math.min(1,scrollY/max)));
+    document.body.classList.toggle('scrolled',scrollY>18);
+    ticking=false;
+  };
+  addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(update)}},{passive:true});
+  update();
+
+  const visual=document.querySelector('.visual');
+  if(visual&&!reduce&&matchMedia('(hover:hover)').matches){
+    visual.addEventListener('pointermove',e=>{
+      const r=visual.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+      visual.style.setProperty('--tilt-x',(x*3.2)+'deg');
+      visual.style.setProperty('--tilt-y',(y*-3.2)+'deg');
+    });
+    visual.addEventListener('pointerleave',()=>{visual.style.setProperty('--tilt-x','0deg');visual.style.setProperty('--tilt-y','0deg')});
+  }
+})();
+</script></body></html>
